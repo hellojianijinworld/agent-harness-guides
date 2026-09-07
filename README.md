@@ -21,7 +21,6 @@ React 프론트엔드와 Django 백엔드가 함께 있는 저장소에서 코�
 ```text
 repository/
 ├── AGENTS.md
-├── CLAUDE.md
 ├── client/
 │   ├── AGENTS.md
 │   └── guides/
@@ -64,7 +63,7 @@ repository/
 
 ## 적용할 때 확인할 것
 
-- `AGENTS.md`와 `CLAUDE.md`는 저장소 루트와 각 앱 경로에 복사한다.
+- `AGENTS.md`는 저장소 루트와 각 앱 경로에 복사한다.
 - 가이드의 상대 경로 예시는 `client/src`, `server/main`, `server/main/_test_fixture` 같은 원본 구조를 전제로 한다.
 - OpenAPI·Mock·Orval 생성물은 직접 편집하지 않고 원본 설정이나 서버 스키마를 수정한 뒤 다시 생성한다.
 - 서버 문서의 테스트 명령은 컨테이너/k8s 실행 스크립트를 전제로 한다. 로컬 실행 환경에서는 같은 테스트 대상을 프로젝트 명령에 맞게 바꾼다.
