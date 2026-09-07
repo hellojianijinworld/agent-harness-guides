@@ -30,7 +30,7 @@ def create_creative_activity(request, payload: CreativeActivityCreateIn):
     return 201, service.create(payload)
 ```
 
-실제 권한 조회와 연동은 [creative_activities/api.py](../main/apps/creative_activities/api.py), 업무 검증은 [CreativeActivityService](../main/apps/creative_activities/services/creative_activity/__init__.py)를 참고한다.
+실제 권한 조회와 연동은 [creative_activities/api.py](../apps/creative_activities/api.py), 업무 검증은 [CreativeActivityService](../apps/creative_activities/services/creative_activity/__init__.py)를 참고한다.
 
 ## 트랜잭션과 외부 부수효과
 

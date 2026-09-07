@@ -34,7 +34,7 @@ class CreativeActivityCreateIn(Schema):
 
 - `before`의 입력은 검증된 모델 인스턴스가 아니다. 해당 호출 경로의 dict·멀티파트 입력 구조를 확인하고 접근한다.
 - JSON 디코딩 실패 등 입력 형태 오류는 기존 API 계약에 맞춰 `ninja.errors.HttpError(400, ...)`로 처리한다. 파싱 후 항목 타입·필드 제약 위반은 스키마 검증에 맡긴다.
-- 파싱 예제는 [CreativeActivityBatchSplitPdfUploadIn](../main/apps/creative_activities/schema.py)의 구현을 참고한다. 해당 멀티파트 전용 접근 방식을 일반 JSON 입력에 복사하지 않는다.
+- 파싱 예제는 [CreativeActivityBatchSplitPdfUploadIn](../apps/creative_activities/schema.py)의 구현을 참고한다. 해당 멀티파트 전용 접근 방식을 일반 JSON 입력에 복사하지 않는다.
 
 ## 출력 표현
 

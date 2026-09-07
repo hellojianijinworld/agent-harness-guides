@@ -47,3 +47,9 @@ assert response.json() == {"detail": "이미 등록된 학생입니다."}
 | Given이나 기대 동작이 독립적 | 별도 테스트 |
 
 파라미터에 따라 테스트 본문을 `if/elif`로 여러 시나리오로 나누지 않는다. 단순 값 차이를 위해 fixture를 여러 개 만들지도 않는다.
+
+여러 상태를 위치 기반 tuple 하나에 압축하지 않는다. `field_states`처럼 `(True, False, False, ...)`만 보고 각 값이 어느 필드인지 기억해야 하는 패턴은 실패 원인과 리뷰 의도를 숨긴다.
+
+- 기대 필드가 여러 개면 case별 기대값을 이름 있는 dict로 표현한다.
+- 또는 `@pytest.mark.parametrize` 인자를 필드별로 펼쳐 이름이 assertion과 실패 메시지에 드러나게 한다.
+- 입력·기대값이 단순한 1~2개 스칼라라면 기존 tuple parametrize를 그대로 사용한다. dict가 더 장황해지면 강제하지 않는다.

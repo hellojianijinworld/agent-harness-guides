@@ -40,7 +40,7 @@ class CreativeActivity(TimestampedModel):
     # 나머지 필드·제약은 실제 모델 참고
 ```
 
-실제 필드·제약의 예: [CreativeActivity](../main/apps/creative_activities/models.py).
+실제 필드·제약의 예: [CreativeActivity](../apps/creative_activities/models.py).
 
 ## 조회와 프로퍼티
 

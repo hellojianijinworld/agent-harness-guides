@@ -5,14 +5,14 @@ Factory 정의도 바꾸면 [Factory 작성](factory.md), DB fixture를 선택�
 
 ## 탐색과 위치
 
-1. `server/main/_test_fixture/`에서 전역 fixture를 검색한다. 아래 표는 탐색용 요약이며 실제 정의가 기준이다.
+1. `server/_test_fixture/`에서 전역 fixture를 검색한다. 아래 표는 탐색용 요약이며 실제 정의가 기준이다.
 2. 대상 테스트에서 가까운 `conftest.py`·파일·클래스의 같은 이름 fixture를 확인한다. 로컬 재정의가 전역 fixture보다 우선한다.
 3. 없으면 사용하는 가장 좁은 범위에 정의한다. 한 클래스는 클래스 내부, 한 파일은 모듈 수준, 앱의 여러 테스트 파일에서 공유하면 `apps/<앱>/tests/conftest.py`에 둔다. 전역 재사용이 필요할 때만 `_test_fixture/`에 둔다.
 
 클래스 fixture는 첫 인자로 `self`를 받는다. 테스트 함수 내부에 fixture를 중첩 정의하지 않는다.
-`server/main/conftest.py`는 아래 6개 파일을 import해 전역에 노출한다. 파일을 전부 읽기보다 fixture 이름·도메인으로 검색한 뒤 필요한 정의와 의존 fixture를 읽는다.
+`server/conftest.py`는 아래 6개 파일을 import해 전역에 노출한다. 파일을 전부 읽기보다 fixture 이름·도메인으로 검색한 뒤 필요한 정의와 의존 fixture를 읽는다.
 
-| 파일 (`server/main/_test_fixture/`) | 찾을 내용 |
+| 파일 (`server/_test_fixture/`) | 찾을 내용 |
 | --- | --- |
 | `client.py` | `client`, `teacher_client`, `other_teacher_client`, `other_school_teacher_client`, `unauthorized_teacher_client`, `admin_teacher_client`, `other_admin_teacher_client`, `multi_subject_category_teacher_client`, `student_client`, `admin_client`, `staff_client`, `client_factory` |
 | `setup_data.py` | 교사·학생·학교, `academic_year`·`last_academic_year`, `academic_semester`·`last_academic_semester`, `base_students` |

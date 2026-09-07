@@ -37,7 +37,7 @@ class CreativeActivityFactory(factory.django.DjangoModelFactory):
         )
 ```
 
-실제 모델 필드와 관계명은 [기존 factories.py](../main/apps/creative_activities/factories.py)를 확인한다. 멤버의 관계명은 `activity`이며, Record에는 `member`·`content`가 있다.
+실제 모델 필드와 관계명은 [기존 factories.py](../apps/creative_activities/factories.py)를 확인한다. 멤버의 관계명은 `activity`이며, Record에는 `member`·`content`가 있다.
 
 ## 관계와 변형
 
