@@ -6,6 +6,7 @@ React 컴포넌트·hook·상태·API 연동을 구현·변경할 때 읽는다.
 ## 책임과 위치
 
 - `src/pages/`는 route parameter·query·redirect·loading을 조율하고 화면은 기능 컴포넌트에 위임한다. 페이지 전용 UI는 기존 `src/components/<feature>-page/` 패턴을 따른다.
+- 구현 전 이 가이드의 책임 경계를 이번 변경의 기준으로 정하고, 완료 전 실제 diff에서 페이지와 기능 컴포넌트가 그 경계를 지키는지 확인한다. 사용자 동작의 mutation·pending/error·cache·반복 CTA가 페이지에 남으면 위임 경계를 다시 검토한다.
 - 한 기능의 컴포넌트·hook·helper는 함께 둔다. 둘 이상 기능에서 실제 재사용할 때만 `components/common/`·`hooks/`로 올린다. Chakra wrapper는 `components/ui/`를 먼저 확인한다.
 - 예상 재사용이나 줄 수를 기준으로 나누지 않는다. 독립 UI·별도 상태 흐름·반복 상호작용을 기준으로 분리한다.
 - Props는 필요한 값·callback만 받는다. 도메인 객체가 입력이면 객체 전달도 허용하되 무관한 필드·상태까지 결합하지 않는다.
