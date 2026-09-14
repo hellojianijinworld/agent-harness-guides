@@ -52,7 +52,9 @@ expect(screen.queryByRole('dialog', { name: '과제 시작 안내' })).not.toBeI
 
 ## API 응답
 
-정상 응답 데이터는 생성 응답 함수를 spy한다. HTTP 오류·상태 코드·지연·요청별 응답은 `server.use`로 해당 handler만 재정의한다.
+- 정적인 정상 API 응답은 `src/test/mocks/response`의 생성 응답 함수를 spy해서 구성한다. 응답 데이터만 바꾸거나 요청 성공을 만들 때는 이 방식이 테스트 의도를 가장 직접적으로 드러내므로 `server.use`보다 우선한다.
+- `server.use`는 생성 응답 spy만으로 표현할 수 없는 네트워크 동작에만 사용한다. 요청별 클로저 상태·순차 응답, 실제 HTTP 오류·상태 코드·지연을 검증할 때 해당 handler만 재정의한다.
+- mutation 입력 인자만 확인하는 테스트는 해당 서비스 함수를 spy하는 편을 우선한다. 실제 HTTP 요청·응답 동작까지 검증할 때만 `server.use`를 선택한다.
 
 ```typescript
 import * as response from '@/test/mocks/response'
