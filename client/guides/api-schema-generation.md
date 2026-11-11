@@ -12,12 +12,21 @@ nvm install 22.22.2
 npm run api-gen
 ```
 
-실행하기 전에 `SERVER_URL` 또는 `OPENAPI_PATH`가 가리키는 `/api/v1/openapi.json`이 현재 작업한 서버 코드에서 나온 것인지 확인한다.
+실행하기 전에 입력으로 사용할 OpenAPI가 현재 작업한 서버 코드에서 나온 것인지 확인한다. `SERVER_URL`을 사용할 때는 실행 중인 서버를 확인하고, `OPENAPI_PATH`를 사용할 때는 그 URL 또는 파일을 확인한다.
 
 ```bash
+# SERVER_URL을 사용할 때
 OPENAPI_URL="${SERVER_URL:-http://localhost:8000}/api/v1/openapi.json"
 curl --fail --silent "$OPENAPI_URL" | jq -e '.openapi and .info and .paths' >/dev/null
+
+# OPENAPI_PATH가 URL일 때
+curl --fail --silent "$OPENAPI_PATH" | jq -e '.openapi and .info and .paths' >/dev/null
+
+# OPENAPI_PATH가 로컬 파일일 때
+jq -e '.openapi and .info and .paths' "$OPENAPI_PATH" >/dev/null
 ```
+
+입력 방식에 맞는 명령 하나만 실행한다.
 
 입력 경로를 바꾸거나 이미 받은 명세로만 다시 생성할 수 있다.
 
